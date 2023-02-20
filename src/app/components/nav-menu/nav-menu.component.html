@@ -1,0 +1,14 @@
+<nav class="navbar navbar-dark bg-dark p-4">
+    <div class="nav-item">
+        <h1 class="text-light text" routerLink="/">ChargeShared</h1>
+    </div>
+    <div *ngIf="isAuthenticated | async" class="nav-item d-flex">
+        <a class="text-light m-3" routerLink="chargers">Oplaadpunten</a>
+        <button class="m-2 btn btn-outline-secondary" (click)="logoutUser()">Logout</button>
+        <h4 routerLink="user" class="text-light m-3">Welkom {{userName | async}}</h4>
+    </div>
+    <div class="nav-item" *ngIf="(isAuthenticated | async) !== true">
+        <a routerLink="/login"><button router class="m-2 btn btn-secondary ">Login</button></a>
+        <a routerLink="/register"><button class="m-2 btn btn-outline-secondary">Register</button></a>
+    </div>
+</nav>

@@ -1,0 +1,8 @@
+<div *ngIf="charger" class="m-5 d-flex">
+    <div>
+        <h1>{{charger.name}}</h1>
+        <p>ChargerType: {{this.utils.getChargerTypeName(charger.chargerType)}}</p>
+        <p>Price per hour: €{{charger.pricePerHour}}</p>
+        <p>QuickCharge: {{charger.quickCharge}}</p>
+    </div>
+</div>

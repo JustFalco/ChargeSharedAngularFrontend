@@ -1,0 +1,75 @@
+<div class="m-5">
+    <!-- name, chargertype, priceperhour, quickcharge -->
+    <h2 class="m-4">Registreer nieuw oplaadpunt</h2>
+    <form [formGroup]="newChargerForm" method="post" (submit)="submitCharger()" >
+        <div class="d-flex flex-row">
+            <div>
+                <div class="form-group m-4">
+                    <label for="chargerName">Naam</label>
+                    <input type="text" class="form-control" id="chargerName" aria-describedby="chargerName" formControlName="chargerName" placeholder="Enter name of charger">
+                </div>
+                <div class="form-group m-4">
+                    <label for="chargerType">Example select</label>
+                    <select class="form-control" id="chargerType" formControlName="chargerType" required>
+                        <option value="" selected disabled hidden>Kies stekker type</option>
+                        <option value="0">J1772</option>
+                        <option value="1">CCS_Combo_1</option>
+                        <option value="2">Type_2</option>
+                        <option value="3">CCS_Combo_2</option>
+                        <option value="4">CHAdeMO</option>
+                        <option value="5">Tesla</option>
+                        <option value="6">Muur stekker</option>
+                    </select>
+                </div>
+                <div class="form-group m-4">
+                    <label for="pricePerHour">Prijs per uur</label>
+                    <input type="number" min="0.5" step="any" class="form-control" id="pricePerHour" formControlName="pricePerHour" aria-describedby="pricePerHour">
+                </div>
+                <div class="form-group m-4 d-flex align-content-center">
+                    <input type="checkbox" class="form-check-input" id="quickcharge" formControlName="quickcharge">
+                    <label class="form-check-label" for="quickcharge" style="margin-left: 10px;">Snel laden</label>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="form-group m-4 col">
+                        <label for="postalCode">Postcode</label>
+                        <input type="text" class="form-control" id="postalCode" aria-describedby="postalCode" formControlName="postalCode">
+                    </div>
+                    <div class="form-group m-4 col">
+                        <label for="province">Provincie</label>
+                        <input type="text" class="form-control" id="province" aria-describedby="province" formControlName="province">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group m-4 col">
+                        <label for="houseNumber">Huisnummer</label>
+                        <input type="text" class="form-control" id="houseNumber" aria-describedby="houseNumber" formControlName="houseNumber">
+                    </div>
+                    <div class="form-group m-4 col">
+                        <label for="houseAddition">Toevoeging</label>
+                        <input type="text" class="form-control" id="houseAddition" aria-describedby="houseAddition" formControlName="houseAddition" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group m-4 col">
+                        <label for="city">Stad</label>
+                        <input type="text" class="form-control" id="city" aria-describedby="city" formControlName="city">
+                    </div>
+                    <div class="form-group m-4 col">
+                        <label for="street">Straat</label>
+                        <input type="text" class="form-control" id="street" aria-describedby="street" formControlName="street">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group m-4 col">
+                        <label for="country">Land</label>
+                        <input type="text" class="form-control" id="country" aria-describedby="country" formControlName="country">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark m-4">Registreren</button>
+    </form>
+</div>

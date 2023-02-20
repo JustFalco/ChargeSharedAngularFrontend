@@ -1,0 +1,2 @@
+C:\Users\JustFalco\source\repos\ChargeSharedProto2\ChargeSharedFrontend\obj\Debug\ChargeSharedFrontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\JustFalco\source\repos\ChargeSharedProto2\ChargeSharedFrontend\obj\Debug\ChargeSharedFrontend.esproj.CoreCompileInputs.cache
