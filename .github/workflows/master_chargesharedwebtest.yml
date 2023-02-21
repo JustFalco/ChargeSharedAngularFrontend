@@ -58,4 +58,4 @@ jobs:
           app-name: 'ChargeSharedWebTest'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4505593884274FE4A53122F2E9C0F0FF }}
-          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          package: .
