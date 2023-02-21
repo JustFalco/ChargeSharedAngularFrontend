@@ -31,9 +31,6 @@ jobs:
           npm install
           npm run build --prod --if-present
           # npm run test --if-present
-          
-      - name: Zip artifact for deployment
-        run: zip release.zip ${{ env.AZURE_WEBAPP_PACKAGE_PATH }} -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -54,9 +51,6 @@ jobs:
         with:
           name: node-app
 
-      - name: unzip artifact for deployment
-        run: unzip release.zip
-
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -64,4 +58,4 @@ jobs:
           app-name: 'ChargeSharedWebTest'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4505593884274FE4A53122F2E9C0F0FF }}
-          package: .
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
