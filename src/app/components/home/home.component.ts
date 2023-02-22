@@ -16,12 +16,14 @@ export class HomeComponent {
     http: HttpClient,
     private authorizeService: AuthorizationService
   ) {
-    http.get<string[]>('/api/test').subscribe(
-      (result) => {
-        this.forecasts = result;
-      },
-      (error) => console.error(error)
-    );
+    http
+      .get<string[]>('https://chargesharedapitest.azurewebsites.net/api/test')
+      .subscribe(
+        (result) => {
+          this.forecasts = result;
+        },
+        (error) => console.error(error)
+      );
   }
 
   ngOnInit() {
