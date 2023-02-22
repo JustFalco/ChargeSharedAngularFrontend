@@ -25,7 +25,7 @@ export class ChargerComponent {
     private mapService: MapService
   ) {
     http
-      .get<Charger>(`/api/chargers/${this.route.snapshot.paramMap.get('id')}`)
+      .get<Charger>(`https://chargesharedapitest.azurewebsites.net/api/chargers/${this.route.snapshot.paramMap.get('id')}`)
       .subscribe(
         (result) => {
           this.charger = result;

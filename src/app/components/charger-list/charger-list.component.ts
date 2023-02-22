@@ -11,7 +11,7 @@ export class ChargerListComponent {
   public chargers?: Charger[];
 
   constructor(http: HttpClient, public utils: UtilsService) {
-    http.get<Charger[]>('/api/chargers').subscribe(
+    http.get<Charger[]>('https://chargesharedapitest.azurewebsites.net/api/chargers').subscribe(
       (result) => {
         this.chargers = result;
         console.log(result);
