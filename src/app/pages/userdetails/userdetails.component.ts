@@ -18,7 +18,7 @@ export class UserdetailsComponent {
 
 
   constructor(public http: HttpClient, public auth: AuthorizationService) {
-    http.get<User>(`/api/user/${auth.getEmail()}`).subscribe(
+    http.get<User>(`https://chargesharedwebtest.azurewebsites.net/api/user/${auth.getEmail()}`).subscribe(
       (result) => {
         this.user = result;
       },
@@ -28,7 +28,7 @@ export class UserdetailsComponent {
 
   wijzigGegevens(){
     if(this.newUserForm.valid){
-      this.http.put(`https://localhost:7234/api/user/${this.auth.getEmail}`, JSON.stringify(this.newUserForm.value))
+      this.http.put(`https://chargesharedwebtest.azurewebsites.net/api/user/${this.auth.getEmail}`, JSON.stringify(this.newUserForm.value))
     }
   }
 }
