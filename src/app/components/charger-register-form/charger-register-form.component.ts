@@ -38,7 +38,7 @@ export class ChargerRegisterFormComponent implements OnInit {
     if (postal.match(/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i)) {
       console.log('Getting form data!');
 
-      fetch(`https://localhost:7234/api/adress/${postal}`)
+      fetch(`https://chargesharedapitest.azurewebsites.net/api/adress/${postal}`)
         .then((x) => x.json())
         .then((x) => {
           console.log(x);
@@ -74,7 +74,7 @@ export class ChargerRegisterFormComponent implements OnInit {
     }
     console.log(this.newChargerForm.getRawValue());
 
-    fetch('https://localhost:7234/api/chargers', {
+    fetch('https://chargesharedapitest.azurewebsites.net/api/chargers', {
       method: 'POST',
       body: JSON.stringify(this.newChargerForm.getRawValue()),
       headers: {
