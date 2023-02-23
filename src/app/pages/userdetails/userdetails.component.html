@@ -1,10 +1,9 @@
-<div *ngIf="user?.firstName && user?.lastName">
+<div *ngIf="user?.firstName && user?.lastName" class="m-5">
     <h2>Welkom {{user?.email}}</h2>
     <p>Voornaam: {{user?.firstName}}</p>
-    <p>Tussen voegsel: {{user?.firstName}}</p>
-    <p>Achternaam: {{user?.firstName}}</p>
-    <h3>Adres</h3>
-    <button class="btn btn-secondary">Wijzig gegevens</button>
+    <p>Tussen voegsel: {{user?.middleName}}</p>
+    <p>Achternaam: {{user?.lastName}}</p>
+    <!-- <button class="btn btn-secondary" (click)="setUserToNull()">Wijzig gegevens</button> -->
 </div>
 <div *ngIf="!(user?.firstName && user?.lastName)" class="w-25 m-5">
     <h2 class="m-4">Welkom {{user?.email}}</h2>
@@ -12,7 +11,7 @@
     <form [formGroup]="newUserForm" (submit)="wijzigGegevens()">
         <div class="form-group m-4">
             <label for="firstName">Voornaam</label>
-            <input formControlName="email" class="form-control" type="text" id="firstName" name="firstName" placeholder="Voornaam:" required>
+            <input formControlName="firstName" class="form-control" type="text" id="firstName" name="firstName" placeholder="Voornaam:" required>
         </div>
         <div class="form-group m-4">
             <label for="middleName">Tussen voegsel</label>
@@ -20,7 +19,7 @@
         </div>
         <div class="form-group m-4">
             <label for="lastName">Achternaam</label>
-            <input formControlName="email" class="form-control" type="text" id="lastName" name="lastName" placeholder="Achternaam:" required>
+            <input formControlName="lastName" class="form-control" type="text" id="lastName" name="lastName" placeholder="Achternaam:" required>
         </div>
         <button type="submit" class="btn btn-dark m-4">Bewaar gegevens</button>
     </form>

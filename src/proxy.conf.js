@@ -6,7 +6,7 @@ const PROXY_CONFIG = [
       "/api/chargers/:id",
       "/api/user"
     ],
-    target: "https://chargesharedapitest.azurewebsites.net",
+    target: "https://localhost:7234/",
     secure: false
   }
 ]
