@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { IndividualChargerPageComponent } from './pages/individual-charger-page/individual-charger-page.component';
+import { MychargersComponent } from './pages/mychargers/mychargers.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { UserdetailsComponent } from './pages/userdetails/userdetails.component';
 
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'chargers', component: ChargerListComponent},
   {path: 'chargers/:id', component: IndividualChargerPageComponent},
   {path: 'user', component: UserdetailsComponent},
-  {path: 'privacy', component: PrivacyComponent}
+  {path: 'privacy', component: PrivacyComponent},
+  {path: 'my-chargers', component: MychargersComponent}
 ];
 
 @NgModule({

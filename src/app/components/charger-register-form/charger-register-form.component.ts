@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthorizationService } from 'src/app/core/services/authorization.service';
 
 @Component({
   selector: 'app-charger-register-form',
@@ -22,7 +23,7 @@ export class ChargerRegisterFormComponent implements OnInit {
     country: new FormControl(),
   });
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public auth: AuthorizationService) {}
 
   ngOnInit(): void {
     this.newChargerForm.controls['postalCode'].valueChanges.subscribe(
@@ -33,10 +34,7 @@ export class ChargerRegisterFormComponent implements OnInit {
   }
 
   completeForm(postal: string) {
-    console.log(postal);
-    console.log(postal.match(/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i));
     if (postal.match(/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i)) {
-      console.log('Getting form data!');
 
       fetch(`https://chargesharedapitest.azurewebsites.net/api/adress/${postal}`)
         .then((x) => x.json())
@@ -72,11 +70,11 @@ export class ChargerRegisterFormComponent implements OnInit {
       this.newChargerForm.reset();
       return;
     }
-    console.log(this.newChargerForm.getRawValue());
+    console.log(JSON.stringify({...this.newChargerForm.getRawValue(), "OwnerEmail": `${this.auth.getEmail()}`}));
 
     fetch('https://chargesharedapitest.azurewebsites.net/api/chargers', {
       method: 'POST',
-      body: JSON.stringify(this.newChargerForm.getRawValue()),
+      body: JSON.stringify({...this.newChargerForm.getRawValue(), "OwnerEmail": `${this.auth.getEmail()}`}),
       headers: {
         'Content-Type': 'application/json',
       },

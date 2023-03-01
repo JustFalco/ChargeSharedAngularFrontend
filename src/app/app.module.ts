@@ -19,6 +19,8 @@ import { ChargerComponent } from './components/charger/charger.component';
 import { MapComponent } from './components/map/map.component';
 import { IndividualChargerPageComponent } from './pages/individual-charger-page/individual-charger-page.component';
 import { UserdetailsComponent } from './pages/userdetails/userdetails.component';
+import { MychargersComponent } from './pages/mychargers/mychargers.component';
+import { MychargerlistComponent } from './components/mychargerlist/mychargerlist.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { UserdetailsComponent } from './pages/userdetails/userdetails.component'
     MapComponent,
     IndividualChargerPageComponent,
     UserdetailsComponent,
+    MychargersComponent,
+    MychargerlistComponent,
   ],
   imports: [
     BrowserModule,

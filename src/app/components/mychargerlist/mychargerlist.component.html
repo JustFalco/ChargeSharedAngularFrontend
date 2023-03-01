@@ -1,0 +1,23 @@
+<h2>Mijn oplaadpunten</h2>
+<table class="table table-hover">
+    <thead class="thead-light">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Snellaadpunt</th>
+          <th scope="col">Prijs per uur</th>
+          <th scope="col">Oplaad type</th>
+          <th scope="col">Info</th>
+          <th scope="col">Verwijderen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let charger of chargers">
+            <td class="m-2">{{charger.name}}</td>
+            <td class="m-2">{{charger.quickCharge ? '&#9989;' : '&#10060;'}}</td>
+            <td class="m-2">€{{charger.pricePerHour}}</td>
+            <td class="m-2">{{ this.utils.getChargerTypeName(charger.chargerType)}}</td>
+            <td><a [routerLink]="['/chargers', charger.id]" routerLinkActive="router-link-active" ><button class="btn btn-secondary">Info</button></a></td>
+            <td><button class="btn btn-danger" (click)="removeCharger(charger.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
