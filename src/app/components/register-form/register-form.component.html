@@ -15,6 +15,10 @@
             <small *ngIf="!checkMatchingPasswords()" class="text-danger">Passwords must match!</small>
             <input formControlName="passwordRepeat" type="password" class="form-control" id="passwordRepeat" placeholder="Password" minlength="5" required>
         </div>
+        <div class="form-group m-4">
+            <input formControlName="userAgreementAccept" type="checkbox" id="userAgreementAccept" required>
+            <label for="userAgreementAccept" class="m-3">Ik accepteer de <a [routerLink]="['/privacy']" routerLinkActive="router-link-active" >privacy voorwaarden</a></label>
+        </div>
         <button type="submit" class="btn btn-dark m-4">Registreren</button>
     </form>
 </div>

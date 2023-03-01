@@ -14,6 +14,7 @@ export class RegisterFormComponent {
     email: new FormControl(),
     password: new FormControl(),
     passwordRepeat: new FormControl(),
+    userAgreementAccept: new FormControl()
   });
 
   constructor(private apiService: ApiService, private router: Router) {}
