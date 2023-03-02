@@ -21,6 +21,8 @@ import { IndividualChargerPageComponent } from './pages/individual-charger-page/
 import { UserdetailsComponent } from './pages/userdetails/userdetails.component';
 import { MychargersComponent } from './pages/mychargers/mychargers.component';
 import { MychargerlistComponent } from './components/mychargerlist/mychargerlist.component';
+import { RegisterChargerComponent } from './pages/register-charger/register-charger.component';
+import { ChargerListFilterComponent } from './components/charger-list-filter/charger-list-filter.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { MychargerlistComponent } from './components/mychargerlist/mychargerlist
     UserdetailsComponent,
     MychargersComponent,
     MychargerlistComponent,
+    RegisterChargerComponent,
+    ChargerListFilterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
-<h2>Oplaadputen in de buurt</h2>
-<table class="table table-hover">
+
+<!-- <table class="table table-hover">
     <thead class="thead-light">
         <tr>
           <th scope="col">Name</th>
@@ -18,7 +18,18 @@
             <td><a [routerLink]="['/chargers', charger.id]" routerLinkActive="router-link-active" ><button class="btn btn-secondary">Info</button></a></td>
         </tr>
     </tbody>
-</table>
+</table> -->
 
 
-
+<div class="card-grid">
+    <div *ngFor="let charger of chargers" class="card">
+        <a [routerLink]="['/chargers', charger.id]" routerLinkActive="router-link-active" >
+            <img src="https://www.eonenergy.com/content/dam/eon-energy-com/images/electric-vehicle-charging-res/ev-cp1_0006_A20029_EON_eMob_09_Mutter_165_sRGB.jpg" alt="Car charger">
+            <h3 id="charger-name">{{charger.name}}</h3>
+            <p>x km away - {{charger.adres?.city}}</p>
+            <p><span>€{{charger.pricePerHour}} </span>per hour</p>
+            <p>Type: {{ this.utils.getChargerTypeName(charger.chargerType)}}</p>
+            <p>Fastcharge: {{charger.quickCharge ? '&#9989;' : '&#10060;'}}</p>
+        </a>
+    </div>
+</div>
