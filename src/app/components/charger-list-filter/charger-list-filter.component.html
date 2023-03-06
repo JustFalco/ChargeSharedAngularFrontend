@@ -1,27 +1,31 @@
 <div class="m-4">
-    <input type="text" placeholder="Zoek op adres, postcode, stad" />
+    <form [formGroup]="filterForm">
+        <input formControlName="adresPostalCity" id="adresPostalCity" type="text" placeholder="Zoek op adres, postcode, stad" />
 
-    <label for="max-price-per-hour">Max prijs:</label>
-    <input type="range" min="0" max="5000" value="0" id="max-price-per-hour" oninput="this.nextElementSibling.value = this.value" />
-    €<input type="number" min="0" max="5000" value="0"/>
+        <label for="max-price-per-hour">Max prijs:</label>
+        <input formControlName="maxPrice" type="range" min="0" max="100" value="0" id="max-price-per-hour" oninput="this.nextElementSibling.value = this.value" />
+        €<input formControlName="maxPrice" type="number" min="0" max="100" value="0"/>
+        
+        <label for="chargerType">Type:</label>
+        
+        <select formControlName="chargerType" id="chargerType" formControlName="chargerType" required>
+            <option value="10" selected disabled hidden>Kies stekker type</option>
+            <option value="0">J1772</option>
+            <option value="1">CCS_Combo_1</option>
+            <option value="2">Type_2</option>
+            <option value="3">CCS_Combo_2</option>
+            <option value="4">CHAdeMO</option>
+            <option value="5">Tesla</option>
+            <option value="6">Muur stekker</option>
+        </select>
+        
+        <label for="startDate">Beschikbaar op: </label>
+        <input formControlName="startDate" type="date" id="startDate">
+        
+        <input formControlName="startTime" type="time" id="startTime">
+        
+        <button class="btn btn-primary" (click)="filter()">filters toepassen</button>
+        <button class="btn btn-danger" (click)="removeFilters()">Verwijder filters</button>
+    </form>
     
-    <label for="chargerType">Type:</label>
-    
-    <select id="chargerType" formControlName="chargerType" required>
-        <option value="100" selected disabled hidden>Kies stekker type</option>
-        <option value="0">J1772</option>
-        <option value="1">CCS_Combo_1</option>
-        <option value="2">Type_2</option>
-        <option value="3">CCS_Combo_2</option>
-        <option value="4">CHAdeMO</option>
-        <option value="5">Tesla</option>
-        <option value="6">Muur stekker</option>
-    </select>
-    
-    <label for="startDate">Beschikbaar op: </label>
-    <input type="date" id="startDate">
-    
-    <input type="time" id="startTime">
-    
-    <button class="btn btn-primary">filters toepassen</button>
 </div>

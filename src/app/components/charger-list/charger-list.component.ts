@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ChargerListService } from 'src/app/core/services/charger-list.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 
 @Component({
@@ -10,18 +11,12 @@ import { UtilsService } from 'src/app/core/services/utils.service';
 export class ChargerListComponent {
   public chargers?: Charger[];
 
-  constructor(http: HttpClient, public utils: UtilsService) {
-    http.get<Charger[]>('https://chargesharedapitest.azurewebsites.net/api/chargers').subscribe(
-      (result) => {
-        this.chargers = result;
-        console.log(result);
-      },
-      (error) => console.error(error)
-    );
-  }
+  constructor(http: HttpClient, public utils: UtilsService, public chargerService: ChargerListService ) {
+    this.chargerService.chargerListObs.subscribe((list) => {
+      this.chargers = list
+    })
 
-  public goToChargerPage(id: number) {
-    alert(`test ${id}`);
+    this.chargerService.getChargers()
   }
 }
 
