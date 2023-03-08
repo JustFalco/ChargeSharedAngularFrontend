@@ -1,31 +1,74 @@
-<div class="m-4">
-    <form [formGroup]="filterForm">
-        <input formControlName="adresPostalCity" id="adresPostalCity" type="text" placeholder="Zoek op adres, postcode, stad" />
+<div id="filterBar">
+    <div>
+        <button class="btn btn-outline-secondary" id="filterBtn" (click)="filterShown = !filterShown"><i class="bi bi-filter-left"></i> Filters</button>
+    </div>
+    <div *ngFor="let item of filtersUsed">
+        <button class="btn btn-sm btn-outline-info" style="margin-left: 1vw;">{{item}}</button>
+    </div>
+</div>
 
-        <label for="max-price-per-hour">Max prijs:</label>
-        <input formControlName="maxPrice" type="range" min="0" max="100" value="0" id="max-price-per-hour" oninput="this.nextElementSibling.value = this.value" />
-        €<input formControlName="maxPrice" type="number" min="0" max="100" value="0"/>
+
+<div id="filterDiv" *ngIf="filterShown">
+    <form [formGroup]="filterForm" id="filterForm" >
+        <div id="headerBox">
+            <button class="btn btn-outline-secondary" (click)="filterShown = !filterShown" id="closeBtn"><i class="bi bi-x"></i></button>
+            <h4 id="headerTitle">Filters</h4>
+        </div>
+
+        <div class="section">
+            <hr>
+            <label for="adresPostalCity">Adres</label>
+            <input class="form-control" formControlName="adresPostalCity" id="adresPostalCity" type="text" placeholder="Zoek op adres, postcode, stad" />
+        </div>
+
+        <div class="section">
+            <hr>
+            <label for="max-price-per-hour">Prijsbereik:</label>
+            <div class="d-flex">
+                <div>
+                    <small id="minPriceText" class="form-text text-muted">Minimale prijs</small>
+                    <input class="form-control" formControlName="minPrice" type="number" min="0" max="100" value="0"/>
+                </div>
+                <div>
+                    <small id="maxPriceText" class="form-text text-muted">Maximale prijs</small>
+                    <input class="form-control" formControlName="maxPrice" type="number" min="0" max="100" value="100"/>
+                </div>
+            </div>
+        </div>
         
-        <label for="chargerType">Type:</label>
+
         
-        <select formControlName="chargerType" id="chargerType" formControlName="chargerType" required>
-            <option value="10" selected disabled hidden>Kies stekker type</option>
-            <option value="0">J1772</option>
-            <option value="1">CCS_Combo_1</option>
-            <option value="2">Type_2</option>
-            <option value="3">CCS_Combo_2</option>
-            <option value="4">CHAdeMO</option>
-            <option value="5">Tesla</option>
-            <option value="6">Muur stekker</option>
-        </select>
+        <div class="section">
+            <hr>
+            <label for="chargerType">Type:</label>
+            
+            <select class="form-control" formControlName="chargerType" id="chargerType" formControlName="chargerType" required>
+                <option value="10" selected disabled hidden>Kies stekker type</option>
+                <option value="0">J1772</option>
+                <option value="1">CCS_Combo_1</option>
+                <option value="2">Type_2</option>
+                <option value="3">CCS_Combo_2</option>
+                <option value="4">CHAdeMO</option>
+                <option value="5">Tesla</option>
+                <option value="6">Muur stekker</option>
+            </select>
+        </div>
         
-        <label for="startDate">Beschikbaar op: </label>
-        <input formControlName="startDate" type="date" id="startDate">
+        <div class="section">
+            <hr>
+            <label for="startDate">Beschikbaar op: </label>
+            <div style="display: flex;">
+                <input class="form-control" formControlName="startDate" type="date" id="startDate">
+                <input class="form-control" formControlName="startTime" type="time" id="startTime">
+                
+            </div>  
+        </div>
         
-        <input formControlName="startTime" type="time" id="startTime">
+        <div id="submitDiv">
+            <button class="btn btn-secondary" (click)="filter()" id="filterToepassen">filters toepassen</button>
+            <button class="btn" (click)="removeFilters()" id="filterRemove">Verwijder filters</button>
+        </div>
         
-        <button class="btn btn-primary" (click)="filter()">filters toepassen</button>
-        <button class="btn btn-danger" (click)="removeFilters()">Verwijder filters</button>
     </form>
     
 </div>

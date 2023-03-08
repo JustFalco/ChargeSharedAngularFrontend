@@ -29,6 +29,7 @@ export class ChargerListService {
     let params = new HttpParams()
       .set("useFilters", true)
       .set("adresPostalCity", filter.adresPostalCity)
+      .set("minPrice", filter.minPrice)
       .set("maxPrice", filter.maxPrice)
       .set("chargerType", filter.chargerType)
       // .set("availibleDate", filter.availibleDate.toString())
@@ -50,6 +51,7 @@ export class ChargerListService {
 
 export interface Filters{
   adresPostalCity: string,
+  minPrice: number,
   maxPrice: number,
   chargerType: number,
   // availibleDate: Date,

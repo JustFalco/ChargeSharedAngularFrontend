@@ -1,0 +1,81 @@
+#filterBar{
+    display: flex;
+    align-items: center;
+    margin-left: 2vw;   
+    margin-bottom: 2vh;
+}
+
+#headerBox{
+    width: 100%;
+    margin-top: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#headerTitle{
+    text-align: center;
+    justify-self: center;
+    font-size: 23px;
+    font-weight: bold;
+    color: rgb(37, 37, 37);
+}
+
+#filterDiv{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(2px);
+    justify-content: center;
+    justify-items: center;
+    padding: 5%;
+}
+
+#filterForm{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    min-height: 50vh;
+    border-radius: 30px;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    position: relative;
+}
+
+label{
+    font-size: 18px;
+    color: rgb(29, 29, 29);
+    font-weight: bold;
+    margin-bottom: 1vh;
+}
+
+#closeBtn{
+    align-self: flex-start;
+    font-size: 20px;
+}
+
+#submitDiv{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 3vh;
+    left: 0;
+    width: 100%;
+}
+
+#filterRemove{
+    text-decoration: underline;
+}
+
+.section{
+    margin-bottom: 3vh;
+}
