@@ -12,7 +12,7 @@ import { UtilsService } from 'src/app/core/services/utils.service';
   styleUrls: ['./charger-list-filter.component.css'],
 })
 export class ChargerListFilterComponent {
-  filterShown: boolean = true;
+  filterShown: boolean = false;
   filtersUsed: string[];
 
 
