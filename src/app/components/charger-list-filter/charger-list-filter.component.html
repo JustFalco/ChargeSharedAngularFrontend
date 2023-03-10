@@ -15,54 +15,64 @@
             <h4 id="headerTitle">Filters</h4>
         </div>
 
-        <div class="section">
-            <hr>
-            <label for="adresPostalCity">Adres</label>
-            <input class="form-control" formControlName="adresPostalCity" id="adresPostalCity" type="text" placeholder="Zoek op adres, postcode, stad" />
-        </div>
-
-        <div class="section">
-            <hr>
-            <label for="max-price-per-hour">Prijsbereik:</label>
-            <div class="d-flex">
-                <div>
-                    <small id="minPriceText" class="form-text text-muted">Minimale prijs</small>
-                    <input class="form-control" formControlName="minPrice" type="number" min="0" max="100" value="0"/>
+        <div id="inputs">
+            <div class="section">
+                <label for="adresPostalCity">Adres</label>
+                <input class="form-control" formControlName="adresPostalCity" id="adresPostalCity" type="text" placeholder="Zoek op adres, postcode, stad" />
+            </div>
+    
+            <div class="section">
+                <hr>
+                <label for="max-price-per-hour">Prijsbereik:</label>
+                <div class="range-slider">
+                    <span class="range-selected"></span>
                 </div>
-                <div>
-                    <small id="maxPriceText" class="form-text text-muted">Maximale prijs</small>
-                    <input class="form-control" formControlName="maxPrice" type="number" min="0" max="100" value="100"/>
+                <div class="range-input">
+                    <input class="form-control" formControlName="minPrice" type="range" min="0" max="100" [(ngModel)]="minPrice"/>
+                    <input class="form-control" formControlName="maxPrice" type="range" min="0" max="100" [(ngModel)]="maxPrice"/>
                 </div>
+                
+                <div class="d-flex" id="pricesInput">
+                    <div>
+                        <small id="minPriceText" class="form-text text-muted">Minimale prijs</small>
+                        <input class="form-control" formControlName="minPrice" type="number" min="0" max="100" [(ngModel)]="minPrice"/>
+                    </div>
+                    <div>
+                        <small id="maxPriceText" class="form-text text-muted">Maximale prijs</small>
+                        <input class="form-control" formControlName="maxPrice" type="number" min="0" max="100" [(ngModel)]="maxPrice"/>
+                    </div>
+                </div>
+            </div>
+            
+    
+            
+            <div class="section">
+                <hr>
+                <label for="chargerType">Type:</label>
+                
+                <select class="form-control" formControlName="chargerType" id="chargerType" formControlName="chargerType" required>
+                    <option value="10" selected disabled hidden>Kies stekker type</option>
+                    <option value="0">J1772</option>
+                    <option value="1">CCS_Combo_1</option>
+                    <option value="2">Type_2</option>
+                    <option value="3">CCS_Combo_2</option>
+                    <option value="4">CHAdeMO</option>
+                    <option value="5">Tesla</option>
+                    <option value="6">Muur stekker</option>
+                </select>
+            </div>
+            
+            <div class="section">
+                <hr>
+                <label for="startDate">Beschikbaar op: </label>
+                <div style="display: flex;">
+                    <input class="form-control" formControlName="startDate" type="date" id="startDate">
+                    <input class="form-control" formControlName="startTime" type="time" id="startTime">
+                    
+                </div>  
             </div>
         </div>
         
-
-        
-        <div class="section">
-            <hr>
-            <label for="chargerType">Type:</label>
-            
-            <select class="form-control" formControlName="chargerType" id="chargerType" formControlName="chargerType" required>
-                <option value="10" selected disabled hidden>Kies stekker type</option>
-                <option value="0">J1772</option>
-                <option value="1">CCS_Combo_1</option>
-                <option value="2">Type_2</option>
-                <option value="3">CCS_Combo_2</option>
-                <option value="4">CHAdeMO</option>
-                <option value="5">Tesla</option>
-                <option value="6">Muur stekker</option>
-            </select>
-        </div>
-        
-        <div class="section">
-            <hr>
-            <label for="startDate">Beschikbaar op: </label>
-            <div style="display: flex;">
-                <input class="form-control" formControlName="startDate" type="date" id="startDate">
-                <input class="form-control" formControlName="startTime" type="time" id="startTime">
-                
-            </div>  
-        </div>
         
         <div id="submitDiv">
             <button class="btn btn-secondary" (click)="filter()" id="filterToepassen">filters toepassen</button>

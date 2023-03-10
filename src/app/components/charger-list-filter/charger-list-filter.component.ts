@@ -14,7 +14,8 @@ import { UtilsService } from 'src/app/core/services/utils.service';
 export class ChargerListFilterComponent {
   filterShown: boolean = false;
   filtersUsed: string[];
-
+  minPrice: number = 0;
+  maxPrice: number = 100;
 
   filterForm = new FormGroup({
     adresPostalCity: new FormControl(''),
