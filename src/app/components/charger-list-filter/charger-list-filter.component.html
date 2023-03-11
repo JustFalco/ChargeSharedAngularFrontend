@@ -9,7 +9,7 @@
 
 
 <div id="filterDiv" *ngIf="filterShown">
-    <form [formGroup]="filterForm" id="filterForm" >
+    <form [formGroup]="filterForm" id="filterForm" (submit)="filter()">
         <div id="headerBox">
             <button class="btn btn-outline-secondary" (click)="filterShown = !filterShown" id="closeBtn"><i class="bi bi-x"></i></button>
             <h4 id="headerTitle">Filters</h4>
@@ -75,7 +75,7 @@
         
         
         <div id="submitDiv">
-            <button class="btn btn-secondary" (click)="filter()" id="filterToepassen">filters toepassen</button>
+            <button class="btn btn-secondary" type="submit"  id="filterToepassen">filters toepassen</button>
             <button class="btn" (click)="removeFilters()" id="filterRemove">Verwijder filters</button>
         </div>
         

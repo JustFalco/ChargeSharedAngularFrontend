@@ -1,8 +1,19 @@
-<div *ngIf="charger" class="m-5 d-flex">
+<div *ngIf="charger" class="d-flex" style="flex-direction: column; margin-top: 5vh; margin-left: 4vw;">
     <div>
-        <h1>{{charger.name}}</h1>
+        <h1 style="margin-bottom: 2vh;">{{charger.name}}</h1>
         <p>ChargerType: {{this.utils.getChargerTypeName(charger.chargerType)}}</p>
         <p>Price per hour: €{{charger.pricePerHour}}</p>
         <p>QuickCharge: {{charger.quickCharge}}</p>
+    </div>
+    <div style="margin-top: 4vh;">
+        <h3 style="margin-bottom: 2vh;">Adres</h3>
+        <p>Land: {{charger.adres.country}}</p>
+        <p>Provincie: {{charger.adres.province}}</p>
+        <p>Stad/dorp: {{charger.adres.city}}</p>
+        <p>Postcode: {{charger.adres.postalCode}}</p>
+        <p>Adres: {{charger.adres.street}} {{charger.adres.houseNumber}}{{charger.adres.houseAddition ? " " + charger.adres.houseAddition: ""}}</p>
+    </div>
+    <div style="margin-top: 4vh;">
+        <button class="btn btn-outline-secondary">Reserveer</button>
     </div>
 </div>
