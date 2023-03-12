@@ -10,10 +10,13 @@ import { UtilsService } from 'src/app/core/services/utils.service';
 })
 export class ChargerListComponent {
   public chargers?: Charger[];
+  loading: boolean = false
 
   constructor(http: HttpClient, public utils: UtilsService, public chargerService: ChargerListService ) {
+    this.loading = true
     this.chargerService.chargerListObs.subscribe((list) => {
       this.chargers = list
+      this.loading = false
     })
 
     this.chargerService.getChargers()

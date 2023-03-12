@@ -10,6 +10,9 @@ import { AuthorizationService } from 'src/app/core/services/authorization.servic
 })
 export class UserdetailsComponent {
   user?: User;
+  loading: boolean = false;
+  color: string = "primary"
+
   newUserForm = new FormGroup({
     firstName: new FormControl(),
     middleName: new FormControl(''),
@@ -17,10 +20,11 @@ export class UserdetailsComponent {
   });
 
   constructor(public http: HttpClient, public auth: AuthorizationService) {
-    
+    this.loading = true
     http.get<User>(`https://chargesharedapitest.azurewebsites.net/api/user/${auth.getEmail()}`).subscribe(
       (result) => {
         this.user = result;
+        this.loading = false
       },
       (error) => console.error(error)
     );
@@ -33,6 +37,7 @@ export class UserdetailsComponent {
 
   wijzigGegevens() {
     console.log('Setting user data');
+    this.loading = true
     if (this.newUserForm.valid) {
       console.log(this.newUserForm.value)
       this.http.put<User>(
@@ -41,8 +46,12 @@ export class UserdetailsComponent {
       ).subscribe((result) => {
         this.user = result
         console.log(result)
+        this.loading = false
       },
-      (error) => console.error(error)
+      (error) => {
+        console.error(error) 
+        this.loading = false
+      }
       );
     }
   }

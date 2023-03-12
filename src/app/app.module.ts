@@ -23,6 +23,11 @@ import { MychargersComponent } from './pages/mychargers/mychargers.component';
 import { MychargerlistComponent } from './components/mychargerlist/mychargerlist.component';
 import { RegisterChargerComponent } from './pages/register-charger/register-charger.component';
 import { ChargerListFilterComponent } from './components/charger-list-filter/charger-list-filter.component';
+import { PreviousPageButtonComponent } from './components/previous-page-button/previous-page-button.component';
+import { PrivacyComponent } from './pages/privacy/privacy.component';
+import { MatButtonModule } from '@angular/material/button'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +46,9 @@ import { ChargerListFilterComponent } from './components/charger-list-filter/cha
     MychargerlistComponent,
     RegisterChargerComponent,
     ChargerListFilterComponent,
+    PreviousPageButtonComponent,
+    PrivacyComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +57,9 @@ import { ChargerListFilterComponent } from './components/charger-list-filter/cha
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatButtonModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {
